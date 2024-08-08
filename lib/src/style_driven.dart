@@ -113,13 +113,13 @@ class WxDrivenAlertStyle extends WxAlertStyle
 
   /// Create a [WxDrivenAlertStyle] with value
   /// from another [WxDrivenAlertStyle].
-  WxDrivenAlertStyle.from(WxDrivenAlertStyle super.other)
-      : focusedStyle = other.focusedStyle,
-        hoveredStyle = other.hoveredStyle,
-        pressedStyle = other.pressedStyle,
-        loadingStyle = other.loadingStyle,
-        disabledStyle = other.disabledStyle,
-        inherits = other.inherits,
+  WxDrivenAlertStyle.from(WxDrivenAlertStyle? super.other)
+      : focusedStyle = other?.focusedStyle,
+        hoveredStyle = other?.hoveredStyle,
+        pressedStyle = other?.pressedStyle,
+        loadingStyle = other?.loadingStyle,
+        disabledStyle = other?.disabledStyle,
+        inherits = other?.inherits,
         super.from();
 
   /// Create a [WxDrivenAlertStyle] from a resolver callback
