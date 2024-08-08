@@ -71,8 +71,11 @@ class WxAlertStyle extends WxSheetStyle {
     super.subtitleWeight,
   });
 
-  /// Create a [WxAlertStyle] from another style
-  WxAlertStyle.from(super.other) : super.from();
+  /// Create a [WxAlertStyle] from another [WxAlertStyle]
+  WxAlertStyle.from(WxAlertStyle? super.other) : super.from();
+
+  /// Create a [WxAlertStyle] from another [WxSheetStyle]
+  WxAlertStyle.fromAncestor(super.other) : super.from();
 
   /// Creates a copy of this [WxAlertStyle] but with
   /// the given fields replaced with the new values.
@@ -215,18 +218,19 @@ class WxAlertStyle extends WxSheetStyle {
       titleWeight: titleWeight,
       subtitleWeight: subtitleWeight,
     );
-    return WxAlertStyle.from(ancestor);
+    return WxAlertStyle.fromAncestor(ancestor);
   }
 
   @override
   WxAlertStyle merge(other) {
+    if (other == null) return this;
     final ancestor = super.merge(other);
-    return WxAlertStyle.from(ancestor);
+    return WxAlertStyle.fromAncestor(ancestor);
   }
 
   /// Linearly interpolate between two [WxAlertStyle] objects.
   static WxAlertStyle? lerp(WxAlertStyle? a, WxAlertStyle? b, double t) {
     final ancestor = WxSheetStyle.lerp(a, b, t);
-    return WxAlertStyle.from(ancestor);
+    return WxAlertStyle.fromAncestor(ancestor);
   }
 }

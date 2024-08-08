@@ -17,16 +17,16 @@ abstract class WxAlertThemePreset extends WxAlertThemeData
 
   @override
   get style {
-    return WxAlertButtonStyle.fromAncestor(super.style).copyWith(
-      direction: Axis.horizontal,
-      textAlign: TextAlign.left,
-      tileWrap: false,
-      spacing: 15,
-      padding: const EdgeInsets.symmetric(
-        horizontal: 16,
-        vertical: 10,
-      ),
-    );
+    return const WxDrivenAlertStyle().merge(super.style).copyWith(
+          direction: Axis.horizontal,
+          textAlign: TextAlign.left,
+          tileWrap: false,
+          spacing: 15,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 10,
+          ),
+        );
   }
 }
 

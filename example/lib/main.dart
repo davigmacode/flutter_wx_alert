@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:theme_patrol/theme_patrol.dart';
 import 'package:wx_alert/wx_alert.dart';
-import 'package:wx_alert_example/sample_appearance.dart';
-import 'package:wx_alert_example/sample_severity.dart';
-import 'package:wx_alert_example/sample_composition.dart';
-import 'package:wx_alert_example/sample_clickable.dart';
 import 'package:wx_text/wx_text.dart';
 import 'theme_picker.dart';
+import 'sample_appearance.dart';
+import 'sample_severity.dart';
+import 'sample_composition.dart';
+import 'sample_clickable.dart';
 
 void main() {
   runApp(const MyApp());

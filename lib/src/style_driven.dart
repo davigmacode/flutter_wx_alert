@@ -3,7 +3,7 @@ import 'package:wx_sheet/wx_sheet.dart';
 import 'style.dart';
 
 /// Create a [WxAlertStyle] when some events occurs
-class WxAlertButtonStyle extends WxAlertStyle
+class WxDrivenAlertStyle extends WxAlertStyle
     with WxDrivenSheetProperty<WxAlertStyle> {
   @override
   final bool? inherits;
@@ -23,8 +23,8 @@ class WxAlertButtonStyle extends WxAlertStyle
   @override
   final WxAlertStyle? disabledStyle;
 
-  /// Create a raw [WxAlertButtonStyle].
-  const WxAlertButtonStyle({
+  /// Create a raw [WxDrivenAlertStyle].
+  const WxDrivenAlertStyle({
     super.variant,
     super.size,
     super.severity,
@@ -99,9 +99,9 @@ class WxAlertButtonStyle extends WxAlertStyle
     this.inherits,
   });
 
-  /// Create a [WxAlertButtonStyle] with value
+  /// Create a [WxDrivenAlertStyle] with value
   /// from another [WxAlertStyle].
-  WxAlertButtonStyle.fromAncestor(
+  WxDrivenAlertStyle.fromAncestor(
     super.enabled, {
     this.focusedStyle,
     this.hoveredStyle,
@@ -111,9 +111,9 @@ class WxAlertButtonStyle extends WxAlertStyle
     this.inherits,
   }) : super.from();
 
-  /// Create a [WxAlertButtonStyle] with value
-  /// from another [WxAlertButtonStyle].
-  WxAlertButtonStyle.from(WxAlertButtonStyle super.other)
+  /// Create a [WxDrivenAlertStyle] with value
+  /// from another [WxDrivenAlertStyle].
+  WxDrivenAlertStyle.from(WxDrivenAlertStyle super.other)
       : focusedStyle = other.focusedStyle,
         hoveredStyle = other.hoveredStyle,
         pressedStyle = other.pressedStyle,
@@ -122,8 +122,8 @@ class WxAlertButtonStyle extends WxAlertStyle
         inherits = other.inherits,
         super.from();
 
-  /// Create a [WxAlertButtonStyle] from a resolver callback
-  WxAlertButtonStyle.resolver(
+  /// Create a [WxDrivenAlertStyle] from a resolver callback
+  WxDrivenAlertStyle.resolver(
     WxDrivenSheetStyleResolver<WxAlertStyle?> resolver, {
     this.inherits = false,
   })  : focusedStyle = resolver({WxSheetEvent.focused}),
@@ -131,7 +131,7 @@ class WxAlertButtonStyle extends WxAlertStyle
         pressedStyle = resolver({WxSheetEvent.pressed}),
         loadingStyle = resolver({WxSheetEvent.loading}),
         disabledStyle = resolver({WxSheetEvent.disabled}),
-        super.from(resolver({}));
+        super.fromAncestor(resolver({}));
 
   /// Resolves the value for the given set of events
   /// if `value` is an event driven [WxAlertStyle],
@@ -150,10 +150,10 @@ class WxAlertButtonStyle extends WxAlertStyle
         : WxAlertStyle.from(style);
   }
 
-  /// Creates a copy of this [WxAlertButtonStyle] but with
+  /// Creates a copy of this [WxDrivenAlertStyle] but with
   /// the given fields replaced with the new values.
   @override
-  WxAlertButtonStyle copyWith({
+  WxDrivenAlertStyle copyWith({
     direction,
     variant,
     size,
@@ -297,7 +297,7 @@ class WxAlertButtonStyle extends WxAlertStyle
       titleWeight: titleWeight,
       subtitleWeight: subtitleWeight,
     );
-    return WxAlertButtonStyle.fromAncestor(
+    return WxDrivenAlertStyle.fromAncestor(
       ancestor,
       inherits: inherits ?? this.inherits,
       focusedStyle: this.focusedStyle?.merge(focusedStyle) ?? focusedStyle,
@@ -309,9 +309,10 @@ class WxAlertButtonStyle extends WxAlertStyle
   }
 
   @override
-  WxAlertButtonStyle merge(other) {
+  WxDrivenAlertStyle merge(other) {
+    if (other == null) return this;
     final ancestor = super.merge(other);
-    final result = WxAlertButtonStyle.fromAncestor(
+    final result = WxDrivenAlertStyle.fromAncestor(
       ancestor,
       inherits: inherits,
       focusedStyle: focusedStyle,
@@ -319,7 +320,7 @@ class WxAlertButtonStyle extends WxAlertStyle
       pressedStyle: pressedStyle,
       disabledStyle: disabledStyle,
     );
-    if (other is WxAlertButtonStyle) {
+    if (other is WxDrivenAlertStyle) {
       return result.copyWith(
         inherits: other.inherits,
         focusedStyle: other.focusedStyle,
@@ -331,10 +332,10 @@ class WxAlertButtonStyle extends WxAlertStyle
     if (other is WxDrivenSheetStyle) {
       return result.copyWith(
         inherits: other.inherits,
-        focusedStyle: WxAlertStyle.from(other.focusedStyle),
-        hoveredStyle: WxAlertStyle.from(other.hoveredStyle),
-        pressedStyle: WxAlertStyle.from(other.pressedStyle),
-        disabledStyle: WxAlertStyle.from(other.disabledStyle),
+        focusedStyle: WxAlertStyle.fromAncestor(other.focusedStyle),
+        hoveredStyle: WxAlertStyle.fromAncestor(other.hoveredStyle),
+        pressedStyle: WxAlertStyle.fromAncestor(other.pressedStyle),
+        disabledStyle: WxAlertStyle.fromAncestor(other.disabledStyle),
       );
     }
     return result;
