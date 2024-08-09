@@ -35,6 +35,8 @@ class WxAlert extends WxSheet<WxAlertThemeData> {
     super.overlay,
     super.overlayColor,
     super.overlayOpacity,
+    super.overlayShape,
+    super.overlayExtent,
     super.elevationColor,
     super.elevation,
     super.tileAlign,
@@ -67,6 +69,11 @@ class WxAlert extends WxSheet<WxAlertThemeData> {
     super.iconColor,
     super.iconOpacity,
     super.iconSize,
+    super.spinnerColor,
+    super.spinnerBackgroundColor,
+    super.spinnerSize,
+    super.spinnerWidth,
+    super.spinnerRounded,
     super.titleStyle,
     super.subtitleStyle,
     super.titleSize,
@@ -107,7 +114,7 @@ class WxAlert extends WxSheet<WxAlertThemeData> {
   }
 
   @override
-  WxAlertStyle? getInheritedStyle(context, inherits) {
+  WxAlertStyle getInheritedStyle(context, inherits) {
     if (inherits) {
       final parentStyle = getParentStyle(context);
       return const WxDrivenAlertStyle()

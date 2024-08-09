@@ -48,6 +48,8 @@ class WxDrivenAlertStyle extends WxAlertStyle
     super.clipBehavior,
     super.overlayColor,
     super.overlayOpacity,
+    super.overlayShape,
+    super.overlayExtent,
     super.surfaceTint,
     super.elevationColor,
     super.elevation,
@@ -81,6 +83,11 @@ class WxDrivenAlertStyle extends WxAlertStyle
     super.iconColor,
     super.iconOpacity,
     super.iconSize,
+    super.spinnerColor,
+    super.spinnerBackgroundColor,
+    super.spinnerSize,
+    super.spinnerWidth,
+    super.spinnerRounded,
     super.titleStyle,
     super.subtitleStyle,
     super.titleSize,
@@ -136,11 +143,11 @@ class WxDrivenAlertStyle extends WxAlertStyle
   /// Resolves the value for the given set of events
   /// if `value` is an event driven [WxAlertStyle],
   /// otherwise returns the value itself.
-  static WxAlertStyle? evaluate(
-    WxAlertStyle? value,
+  static WxAlertStyle evaluate(
+    WxAlertStyle value,
     Set<WxSheetEvent> events,
   ) {
-    return WxDrivenSheetStyle.evaluate<WxAlertStyle>(value, events);
+    return WxDrivenSheetStyle.evaluate(value, events);
   }
 
   @override
@@ -178,6 +185,8 @@ class WxDrivenAlertStyle extends WxAlertStyle
     clipBehavior,
     overlayColor,
     overlayOpacity,
+    overlayShape,
+    overlayExtent,
     surfaceTint,
     elevationColor,
     elevation,
@@ -211,6 +220,11 @@ class WxDrivenAlertStyle extends WxAlertStyle
     iconColor,
     iconOpacity,
     iconSize,
+    spinnerColor,
+    spinnerBackgroundColor,
+    spinnerSize,
+    spinnerWidth,
+    spinnerRounded,
     titleStyle,
     subtitleStyle,
     titleSize,
@@ -253,6 +267,8 @@ class WxDrivenAlertStyle extends WxAlertStyle
       clipBehavior: clipBehavior,
       overlayColor: overlayColor,
       overlayOpacity: overlayOpacity,
+      overlayShape: overlayShape,
+      overlayExtent: overlayExtent,
       surfaceTint: surfaceTint,
       elevationColor: elevationColor,
       elevation: elevation,
@@ -286,6 +302,11 @@ class WxDrivenAlertStyle extends WxAlertStyle
       iconColor: iconColor,
       iconOpacity: iconOpacity,
       iconSize: iconSize,
+      spinnerColor: spinnerColor,
+      spinnerBackgroundColor: spinnerBackgroundColor,
+      spinnerSize: spinnerSize,
+      spinnerWidth: spinnerWidth,
+      spinnerRounded: spinnerRounded,
       titleStyle: titleStyle,
       subtitleStyle: subtitleStyle,
       titleSize: titleSize,

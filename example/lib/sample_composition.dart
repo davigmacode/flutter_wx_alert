@@ -26,9 +26,9 @@ class SampleComposition extends StatelessWidget {
             leading: const Icon(Icons.warning),
             trailing: WxAnchor.circle(
               onTap: () {},
-              radius: 0,
-              hoveredStyle: WxAnchorStyle.circle(radius: 20),
-              pressedStyle: WxAnchorStyle.circle(radius: 15),
+              overlayRadius: 0,
+              hoveredStyle: WxAnchorStyle.circle(overlayRadius: 20),
+              pressedStyle: WxAnchorStyle.circle(overlayRadius: 15),
               child: const Icon(Icons.close),
             ),
             title: const Text('Using Title'),

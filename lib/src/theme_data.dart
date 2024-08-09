@@ -14,6 +14,8 @@ class WxAlertThemeData extends WxSheetThemeData<WxAlertThemeData> {
     super.disabled,
     super.inherits,
     super.mouseCursor,
+    super.leading,
+    super.trailing,
   }) : super(animated: true);
 
   WxAlertThemeData.from([
@@ -34,6 +36,8 @@ class WxAlertThemeData extends WxSheetThemeData<WxAlertThemeData> {
     disabled,
     inherits,
     mouseCursor,
+    leading,
+    trailing,
   }) {
     final ancestor = super.copyWith(
       animated: animated,
@@ -47,6 +51,8 @@ class WxAlertThemeData extends WxSheetThemeData<WxAlertThemeData> {
       disabled: disabled,
       inherits: inherits,
       mouseCursor: mouseCursor,
+      leading: leading,
+      trailing: trailing,
     );
     return WxAlertThemeData.from(ancestor);
   }
