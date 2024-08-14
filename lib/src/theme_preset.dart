@@ -10,6 +10,7 @@ abstract class WxAlertThemePreset extends WxAlertThemeData
     this.context, {
     super.curve,
     super.duration,
+    super.style,
   });
 
   @override
@@ -17,7 +18,12 @@ abstract class WxAlertThemePreset extends WxAlertThemeData
 
   @override
   get style {
-    return const WxDrivenAlertStyle().merge(super.style).copyWith(
+    return const WxDrivenAlertStyle().merge(super.style);
+  }
+
+  @override
+  WxSheetStyle baseStyle(data) {
+    return super.baseStyle(data).copyWith(
           direction: Axis.horizontal,
           textAlign: TextAlign.left,
           tileWrap: false,
@@ -35,6 +41,7 @@ class WxAlertThemeAdaptive extends WxAlertThemePreset {
     super.context, {
     super.curve,
     super.duration,
+    super.style,
   });
 
   @override
@@ -46,6 +53,7 @@ class WxAlertThemeM2 extends WxAlertThemePreset {
     super.context, {
     super.curve,
     super.duration,
+    super.style,
   });
 
   @override
@@ -57,6 +65,7 @@ class WxAlertThemeM3 extends WxAlertThemePreset {
     super.context, {
     super.curve,
     super.duration,
+    super.style,
   });
 
   @override
@@ -68,6 +77,7 @@ class WxAlertThemeIOS extends WxAlertThemePreset {
     super.context, {
     super.curve,
     super.duration,
+    super.style,
   });
 
   @override

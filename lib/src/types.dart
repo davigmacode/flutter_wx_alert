@@ -19,6 +19,12 @@ class WxAlertVariant extends WxSheetVariant {
 
   /// A constant variant representing outlined content.
   static const outlined = WxAlertVariant('outlined');
+
+  /// A constant variant representing gradient variation.
+  static const gradient = WxSheetVariant('gradient');
+
+  /// An undefined constant variant.
+  static const undefined = WxSheetVariant('undefined');
 }
 
 /// Represents the different sizes available
@@ -41,4 +47,7 @@ class WxAlertSize extends WxSheetSize {
 
   /// Represents the huge alert size.
   static const huge = WxAlertSize('huge');
+
+  /// An undefined constant size.
+  static const undefined = WxSheetSize('undefined');
 }
