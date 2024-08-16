@@ -49,6 +49,7 @@ class WxAlert extends WxSheet<WxAlertThemeData> {
     super.textOverflow,
     super.textSoftWrap,
     super.textWidthBasis,
+    super.adaptiveForegroundColor,
     super.foregroundColor,
     super.foregroundOpacity,
     super.foregroundAlpha,
