@@ -9,6 +9,7 @@ class SampleAppearance extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Wrapper(
       title: 'Appearance',
+      source: 'sample_appearance.dart',
       child: Column(
         children: [
           WxAlert(

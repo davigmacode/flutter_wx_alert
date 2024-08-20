@@ -10,6 +10,7 @@ class SampleSeverity extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Wrapper(
       title: 'Color Severity',
+      source: 'sample_severity.dart',
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

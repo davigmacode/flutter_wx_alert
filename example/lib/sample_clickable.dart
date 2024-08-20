@@ -11,6 +11,7 @@ class SampleClickable extends StatelessWidget {
   Widget build(BuildContext context) {
     return Wrapper(
       title: 'Clickable',
+      source: 'sample_clickable.dart',
       child: Column(
         children: [
           WxAlert(

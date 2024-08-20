@@ -11,6 +11,7 @@ class SampleComposition extends StatelessWidget {
   Widget build(BuildContext context) {
     return Wrapper(
       title: 'Composition',
+      source: 'sample_composition.dart',
       child: Column(
         children: [
           const WxAlert(
