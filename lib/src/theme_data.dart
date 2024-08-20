@@ -2,7 +2,7 @@ import 'package:wx_sheet/wx_sheet.dart';
 import 'style.dart';
 
 class WxAlertThemeData extends WxSheetThemeData<WxAlertThemeData> {
-  /// Creates a theme data that can be used for [SheetTheme].
+  /// Creates a theme data that can be used for [WxAlertTheme].
   const WxAlertThemeData({
     super.curve,
     super.duration,

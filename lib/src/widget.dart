@@ -4,10 +4,23 @@ import 'theme_data.dart';
 import 'style_driven.dart';
 import 'style.dart';
 
-/// The sheet widget serves as the building block for many Widgetarian components,
-/// providing a base layer for customization.
+/// A customizable alert widget for displaying important messages.
+///
+/// Inherits all the styling and behavior properties from the base class [WxSheet].
+/// Additionally, it provides a predefined style based on the current theme
+/// through the [WxDrivenAlertStyle] class.
+///
+/// Renders a sheet with configurable appearance through properties like:
+///   - size, margins, padding, and alignment
+///   - background and border styling
+///   - text styling for title, subtitle, and content
+///   - icon and spinner configuration
+///   - and more! (refer to [WxSheet] for full list)
 class WxAlert extends WxSheet<WxAlertThemeData> {
-  /// Create a sheet widget
+  /// Creates a new `WxAlert` widget.
+  ///
+  /// Offers extensive customization options for appearance, behavior, and content.
+  /// See individual parameter descriptions for details.
   const WxAlert({
     super.key,
     super.animated,

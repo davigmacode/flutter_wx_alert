@@ -6,21 +6,24 @@ import 'style.dart';
 
 class WxAlertTheme extends WxSheetTheme<WxAlertThemeData> {
   /// Creates a theme that controls
-  /// how descendant [WxSheet]s should look like.
+  /// how descendant [WxAlert]s should look like.
   const WxAlertTheme({
     super.key,
     required super.data,
     required super.child,
   });
 
-  /// Creates an [WxSheetTheme] that controls the style of
-  /// descendant widgets, and merges in the current [WxSheetTheme], if any.
+  /// Creates an [WxAlertTheme] that controls the style of
+  /// descendant widgets, and merges in the current [WxAlertTheme], if any.
   ///
   /// The [style] and [child] arguments must not be null.
   static Widget merge({
     Key? key,
     Curve? curve,
     Duration? duration,
+    WxSheetVariant? variant,
+    WxSheetSize? size,
+    Color? severity,
     WxAlertStyle? style,
     WxSheetStyleResolver<WxAlertStyle>? styleResolver,
     bool? overlay,
@@ -28,6 +31,8 @@ class WxAlertTheme extends WxSheetTheme<WxAlertThemeData> {
     bool? focusable,
     bool? disabled,
     MouseCursor? mouseCursor,
+    Widget? leading,
+    Widget? trailing,
     WxAlertThemeData? data,
     required Widget child,
   }) {
@@ -36,6 +41,9 @@ class WxAlertTheme extends WxSheetTheme<WxAlertThemeData> {
       data: data,
       curve: curve,
       duration: duration,
+      variant: variant,
+      size: size,
+      severity: severity,
       style: style,
       styleResolver: styleResolver,
       overlay: overlay,
@@ -43,6 +51,8 @@ class WxAlertTheme extends WxSheetTheme<WxAlertThemeData> {
       focusable: focusable,
       disabled: disabled,
       mouseCursor: mouseCursor,
+      leading: leading,
+      trailing: trailing,
       child: child,
     );
   }
@@ -53,7 +63,7 @@ class WxAlertTheme extends WxSheetTheme<WxAlertThemeData> {
   /// Typical usage is as follows:
   ///
   /// ```dart
-  /// WxSheetThemeData theme = WxSheetTheme.maybeOf(context);
+  /// WxAlertThemeData theme = WxAlertTheme.maybeOf(context);
   /// ```
   static WxAlertThemeData? maybeOf(BuildContext context) {
     final parent = WxSheetTheme.maybeOf<WxAlertThemeData>(context);
@@ -66,7 +76,7 @@ class WxAlertTheme extends WxSheetTheme<WxAlertThemeData> {
   /// Typical usage is as follows:
   ///
   /// ```dart
-  /// WxSheetThemeData theme = WxSheetTheme.of(context);
+  /// WxAlertThemeData theme = WxAlertTheme.of(context);
   /// ```
   static WxAlertThemeData of(BuildContext context) {
     final parent = WxAlertTheme.maybeOf(context);

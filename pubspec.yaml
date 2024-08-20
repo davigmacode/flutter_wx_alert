@@ -1,7 +1,13 @@
 name: wx_alert
-description: "A new Flutter package project."
-version: 0.0.1
-homepage:
+description: A concise and impactful widget designed to capture user focus with a crucial, unchanging message.
+version: 1.0.0
+homepage: https://github.com/davigmacode/flutter_wx_alert
+
+topics:
+  - ui
+  - alert
+  - event-driven
+  - widgetarian
 
 environment:
   sdk: '>=3.4.0 <4.0.0'
@@ -10,7 +16,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  wx_sheet: ^4.6.0
+  wx_sheet: ^4.7.0
 
 dev_dependencies:
   flutter_test:
