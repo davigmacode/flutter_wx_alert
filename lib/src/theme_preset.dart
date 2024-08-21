@@ -47,8 +47,24 @@ class WxAlertThemeAdaptive extends WxAlertThemePreset {
     super.style,
   });
 
+  WxAlertThemePreset get platformTheme {
+    WxAlertThemePreset theme = WxAlertThemeM2(context);
+    if (isAndroid && useMaterial3) {
+      theme = WxAlertThemeM3(context);
+    } else if (isIOS) {
+      theme = WxAlertThemeIOS(context);
+    }
+    return theme;
+  }
+
   @override
-  get baseTheme => WxSheetThemeTapAdaptive(context);
+  get baseTheme => platformTheme.baseTheme;
+
+  @override
+  get effectiveStyle => platformTheme.effectiveStyle;
+
+  @override
+  get styleResolver => platformTheme.styleResolver;
 }
 
 class WxAlertThemeM2 extends WxAlertThemePreset {
