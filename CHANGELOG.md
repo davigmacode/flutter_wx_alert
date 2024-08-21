@@ -1,3 +1,8 @@
+## 1.0.1
+
+* Improved adaptive theme preset
+* Fixed theme merge and maybeOf function
+
 ## 1.0.0
 
 * Added alert widget.
