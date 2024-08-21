@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:wx_sheet/wx_sheet.dart';
 import 'theme_data.dart';
 import 'theme_preset.dart';
@@ -9,7 +9,7 @@ class WxAlertTheme extends WxSheetTheme<WxAlertThemeData> {
   /// how descendant [WxAlert]s should look like.
   const WxAlertTheme({
     super.key,
-    required super.data,
+    required WxAlertThemeData super.data,
     required super.child,
   });
 
@@ -36,24 +36,30 @@ class WxAlertTheme extends WxSheetTheme<WxAlertThemeData> {
     WxAlertThemeData? data,
     required Widget child,
   }) {
-    return WxSheetTheme.merge<WxAlertThemeData>(
-      key: key,
-      data: data,
-      curve: curve,
-      duration: duration,
-      variant: variant,
-      size: size,
-      severity: severity,
-      style: style,
-      styleResolver: styleResolver,
-      overlay: overlay,
-      feedback: feedback,
-      focusable: focusable,
-      disabled: disabled,
-      mouseCursor: mouseCursor,
-      leading: leading,
-      trailing: trailing,
-      child: child,
+    return Builder(
+      builder: (BuildContext context) {
+        final parent = WxAlertTheme.of(context);
+        return WxAlertTheme(
+          key: key,
+          data: parent.merge(data).copyWith(
+                curve: curve,
+                duration: duration,
+                variant: variant,
+                size: size,
+                severity: severity,
+                style: style,
+                styleResolver: styleResolver,
+                overlay: overlay,
+                feedback: feedback,
+                focusable: focusable,
+                disabled: disabled,
+                mouseCursor: mouseCursor,
+                leading: leading,
+                trailing: trailing,
+              ),
+          child: child,
+        );
+      },
     );
   }
 
@@ -66,8 +72,14 @@ class WxAlertTheme extends WxSheetTheme<WxAlertThemeData> {
   /// WxAlertThemeData theme = WxAlertTheme.maybeOf(context);
   /// ```
   static WxAlertThemeData? maybeOf(BuildContext context) {
-    final parent = WxSheetTheme.maybeOf<WxAlertThemeData>(context);
-    return WxAlertThemeData.from(parent);
+    final parentTheme =
+        context.dependOnInheritedWidgetOfExactType<WxAlertTheme>();
+    if (parentTheme != null) {
+      return WxAlertThemeData.from(parentTheme.data);
+    }
+
+    final globalTheme = Theme.of(context).extension<WxAlertThemeData>();
+    return globalTheme;
   }
 
   /// The [data] from the closest instance of
