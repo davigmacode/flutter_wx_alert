@@ -1,3 +1,7 @@
+## 1.0.2
+
+* Update to wx_sheet v4.8.0, added option to style checkmark stroke edges
+
 ## 1.0.1
 
 * Improved adaptive theme preset
